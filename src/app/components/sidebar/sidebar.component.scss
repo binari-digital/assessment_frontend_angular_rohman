@@ -1,0 +1,24 @@
+.sidebar {
+  width: 16rem;
+  height: calc(100vh - 86px);
+  background: rgb(246, 246, 246);
+  border-right: 1px solid #cecece;
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.link {
+  padding: 0.5rem 2rem;
+  color: #343a40;
+  font-weight: 500;
+  text-decoration: none;
+
+  &:hover {
+    color: #ffffff;
+    background-color: #26415b;
+  }
+}
+.link.active {
+  background-color: #343a40;
+  color: #ffffff;
+}
