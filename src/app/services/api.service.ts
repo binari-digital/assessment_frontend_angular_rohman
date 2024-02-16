@@ -12,4 +12,8 @@ export class ApiService {
   getUserApiUrl(): string {
     return `${this.baseApiUrl}/users`;
   }
+
+  getProductApiUrl(): string {
+    return `${this.baseApiUrl}/products`;
+  }
 }

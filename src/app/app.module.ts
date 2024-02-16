@@ -7,10 +7,19 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from "@angular/common/http";
 import { LoginModule } from './modules/login/login.module';
+import { TopbarComponent } from './components/topbar/topbar.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { LayoutComponent } from './components/layout/layout.component';
+import { NotfoundComponent } from './modules/notfound/notfound.component';
+import { DashboardModule } from './modules/dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
     AppComponent,
+    TopbarComponent,
+    SidebarComponent,
+    LayoutComponent,
+    NotfoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -19,6 +28,7 @@ import { LoginModule } from './modules/login/login.module';
     FormsModule,
     HttpClientModule,
     LoginModule,
+    DashboardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
