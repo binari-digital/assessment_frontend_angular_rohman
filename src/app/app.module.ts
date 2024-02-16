@@ -10,6 +10,8 @@ import { LoginModule } from './modules/login/login.module';
 import { TopbarComponent } from './components/topbar/topbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { SettingComponent } from './modules/setting/setting.component';
+import { UserComponent } from './modules/user/user.component';
 import { NotfoundComponent } from './modules/notfound/notfound.component';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
 
@@ -19,6 +21,8 @@ import { DashboardModule } from './modules/dashboard/dashboard.module';
     TopbarComponent,
     SidebarComponent,
     LayoutComponent,
+    SettingComponent,
+    UserComponent,
     NotfoundComponent,
   ],
   imports: [

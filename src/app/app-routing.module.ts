@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './components/layout/layout.component';
+import { SettingComponent } from './modules/setting/setting.component';
+import { UserComponent } from './modules/user/user.component';
 import { NotfoundComponent } from './modules/notfound/notfound.component';
 
 const routes: Routes = [
@@ -16,6 +18,14 @@ const routes: Routes = [
       {
         path: 'dashboard',
         loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule),
+      },
+      {
+        path: 'user',
+        component: UserComponent,
+      },
+      {
+        path: 'setting',
+        component: SettingComponent,
       },
     ]
   },
