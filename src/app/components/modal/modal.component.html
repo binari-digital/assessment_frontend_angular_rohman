@@ -1,0 +1,15 @@
+<div class="modal-body">
+  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <div class="modal-image">
+    <img *ngIf="!showFallback" [src]="image" [alt]="name" (error)="fallbackImage()" class="image" />
+    <!-- Fallback image -->
+    <img
+      *ngIf="showFallback"
+      src="https://angular.io/assets/images/logos/angular/angular.png"
+      class="image"
+      alt="Fallback Image" />
+      <div>{{name}}</div>
+  </div>
+</div>

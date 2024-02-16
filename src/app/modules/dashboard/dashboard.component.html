@@ -1,0 +1,76 @@
+<div>
+  <div *ngIf="isLoading else table" class="loader-wrapper">
+    <div class="loader"></div>
+  </div>
+  <ng-template #table>
+    <div class="filter">
+      <div class="search">
+        <input type="text" class="form-control" placeholder="Search product name" [value]="productNameFilter " (input)="filterName($event)">
+      </div>
+      <div class="select">
+        <select class="custom-select custom-select-sm" (change)="filterColor($event)">
+          <option value="">All Color</option>
+          <option
+            *ngFor="let option of colors"
+            [value]="option"
+            [selected]="selectedColorFilter  === option">
+            {{ option.toLocaleUpperCase() }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">
+            <div class="w-100 d-flex justify-content-between align-items-center">
+              <p class="mb-0">Name</p>
+              <div class="d-flex flex-column">
+                <button *ngIf="sort === 'desc'" class="sort" title="Sort Ascending" (click)="sortAscending()">▲</button>
+                <button *ngIf="sort === 'asc'" class="sort" title="Sort Descending" (click)="sortDescending()">▼</button>
+              </div>
+            </div>
+          </th>
+          <th scope="col">Product</th>
+          <th scope="col">Material</th>
+          <th scope="col">Color</th>
+          <th scope="col">Adjective</th>
+          <th scope="col">Price</th>
+          <th scope="col">Image</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="products.length else nodata">
+        <tr *ngFor="let product of products; let i = index">
+          <td>{{ (perPage * currentPage) + i + 1 }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.product }}</td>
+          <td>{{ product.material }}</td>
+          <td>{{ product.color }}</td>
+          <td>{{ product.adjective }}</td>
+          <td>${{ product.price }}</td>
+          <td>
+            <div class="">
+              <button type="button" class="btn btn-sm btn-primary" (click)="openModal(product.id)">View Image</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+      <ng-template #nodata>
+        <tbody>
+          <tr>
+            <td colspan="8" class="text-center">No data</td>
+          </tr>
+        </tbody>
+      </ng-template>
+    </table>
+    <app-pagination
+      [currentPage]="currentPage"
+      [maxPage]="maxPage"
+      [perPage]="perPage"
+      [step]="step"
+      (perPageChange)="onItemsPerPageChange($event)"
+      (pageChange)="pageChange($event)">
+    </app-pagination>
+  </ng-template>
+</div>

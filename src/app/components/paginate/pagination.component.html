@@ -1,0 +1,30 @@
+<div class="paginate">
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="nowrap">Per page:</div>
+    <select class="custom-select custom-select-sm" (change)="perPageChange.emit($event)">
+      <option
+        *ngFor="let option of [10, 20, 30]"
+        [value]="option"
+        [selected]="perPage === option">
+        {{ option }}
+      </option>
+    </select>
+  </div>
+  <nav>
+    <ul class="pagination">
+      <li class="page-item">
+        <button class="page-link" aria-label="Previous" (click)="previous()" [disabled]="currentPage === 0">
+          <span aria-hidden="true">&laquo;</span>
+        </button>
+      </li>
+      <li class="page-item" *ngFor="let idx of pageIndices" [ngClass]="{ 'active': idx === currentPage }">
+        <button  class="page-link" (click)="setPage(idx)">{{ idx + 1 }}</button>
+      </li>
+      <li class="page-item">
+        <button class="page-link" aria-label="Next" (click)="next()" [disabled]="maxPage === currentPage + 1">
+          <span aria-hidden="true">&raquo;</span>
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
